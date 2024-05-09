@@ -24,6 +24,10 @@ def create_user():
             return jsonify({"error": "This action requires allevation"}), 400
         if password != password2:
             return jsonify({"error": "Passwords don't match"}), 400
+        if len(username) < 4:
+            return jsonify({"error": "Username must be atleast 4 characters"}), 400
+        if len(password) < 8:
+            return jsonify({"error": "Password must be atleast 8 characters"}), 400
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     except:
         traceback.print_exc()

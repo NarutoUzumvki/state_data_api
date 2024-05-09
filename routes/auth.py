@@ -25,6 +25,23 @@ def login_for_access_token():
 
     return jsonify({'access_token': token, 'token_type': 'Bearer'}), 200
 
+@auth_bp.route("/api_key")
+@validate_json(['username', 'password'])
+def login_for_api_key():
+    try:
+        data = request.json
+        username = data.get("username")
+        password = data.get("password")
+    except Exception as error:
+        traceback.print_exc()
+        return jsonify({"error": "Something went wrong"}), 400
+        
+    user = authenticate_user(username, password)
+    if not user:
+        return jsonify({"error": "Could not validate user"}), 400
+        
+    return jsonify({"api_key": user.api_key}), 200
+
 @auth_bp.route("/logout", methods=["POST"])
 def logout():
     token = request.headers.get('Authorization', '').split('Bearer ')[-1]

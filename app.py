@@ -27,4 +27,4 @@ app.register_blueprint(cities_bp, url_prefix='/cities')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
