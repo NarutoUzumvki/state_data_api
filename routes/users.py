@@ -39,7 +39,6 @@ def create_user():
             pass
         new_user = create_new_user(username, hashed_password, email, role)
         user_data = {
-            'id': new_user.id, 
             'username': new_user.username, 
             'api_key': new_user.api_key,
             'role': new_user.role
@@ -75,7 +74,7 @@ def change_password(user):
     try:
         hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt())
         update_password(user.get("id"), hashed_password)
-        return jsonify({"error": "Password updated successfully"}), 200
+        return jsonify({"message": "Password updated successfully"}), 200
     except:
         traceback.print_exc()
         return jsonify({"error": "Something went wrong"}), 400
