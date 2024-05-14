@@ -28,7 +28,6 @@ print(resp.text)
 """
 {
     "api_key": <api_key>",
-    "id": <id>,
     "role": "user",
     "username": "maxc-1560"
 }
