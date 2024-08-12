@@ -7,6 +7,8 @@ Cities of India.
 
 ## Usage
 
+### *NOTE*: Only admin users can make POST, PUT and DELETE requests
+
 ### Create New User
 #### Endpoint: https://apis.travelrealindia.in/users/create
 ```python
