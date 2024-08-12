@@ -2,10 +2,10 @@ import redis
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from params import username, password, host, database, redis_host, redis_pw
+from params import username, password, host, database, redis_host, redis_port, redis_pw
 
 # Rdids Config
-redis_client = redis.StrictRedis(host=redis_host, port=16129, password=redis_pw)
+redis_client = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_pw)
 
 # SQLAlchemy Config
 SQLALCHEMY_DATABASE_URL = f'mysql+pymysql://{username}:{password}@{host}/{database}'
