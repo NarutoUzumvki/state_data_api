@@ -4,6 +4,9 @@ the Flask framework that serves as a centralized platform to
 access information related to States, Union Territories and
 Cities of India.
 
+### *PYPI Python Client*: https://pypi.org/project/infoindia
+### Get your free api_key: https://apis.travelrealindia.in/signup
+
 
 ## Usage
 
