@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from routes.auth import auth_bp
 from routes.users import users_bp
 from routes.states import states_bp
@@ -13,7 +13,7 @@ models.Base.metadata.create_all(bind=engine)
 
 @app.route("/")
 def greet():
-    return "Welcome to Bharat!"
+    return render_template('home.html')
 
 @app.route("/helloworld")
 def hello_world():
